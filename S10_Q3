@@ -1,0 +1,19 @@
+% studio10_Q1   Linearity I   
+
+X=-4:4;
+Y=-3:3;
+[x,y]=meshgrid(X, Y);
+
+f = x.* (1+1./(x.^2+y.^2) );
+[dx,dy] = gradient(f, .2, .2);
+
+% contour(y,z,f,10, 'ShowText','on', 'LineWidth',3);
+hold on;
+q = quiver(x, y, dx, dy);
+
+v=[0,.001,.05,.10,.2,.3,.4,.5,1];
+
+contour(x,y,f,v, 'ShowText','on')
+xlabel('Y','FontSize', 16)
+ylabel('Z','FontSize', 16)
+title('Electric Potential','FontSize', 20)
