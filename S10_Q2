@@ -1,7 +1,7 @@
-% studio10_Q2   Linearity I   Halie Murray-Davis
+% studio10_Q1   Linearity I   Halie Murray-Davis
 
-Z=-.01:5;
-Y=-10:50;
+Z=0:30;
+Y=0:25;
 [y,z]=meshgrid(Y, Z);
 x=1;
 f = 40*( exp(-x/10)+exp(-y/10)+exp(z/10-2) +exp(-2-z/10) );
