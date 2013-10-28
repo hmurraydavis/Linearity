@@ -1,14 +1,17 @@
-% studio10_Q1   Linearity I   
+% studio10_Q1   Linearity I   Halie Murray-Davis
 
 Z=0:30;
 Y=0:25;
 [y,z]=meshgrid(Y, Z);
 x=1;
 f = 40*( exp(-x/10)+exp(-y/10)+exp(z/10-2) +exp(-2-z/10) );
+[dy,dz] = gradient(f, .2, .2);
 v=[60,80,100];
 
 
-contour(y,z,f,v, 'ShowText','on', 'LineWidth',3)
+contour(y,z,f,v, 'ShowText','on', 'LineWidth',3);
+hold on;
+q = quiver(y, z, dx, dy);
 % contour(y,z,f,10, 'ShowText','on')
 xlabel('Y','FontSize', 16)
 ylabel('Z','FontSize', 16)
