@@ -1,0 +1,15 @@
+% studio10_Q2   Linearity I   Halie Murray-Davis
+
+Z=-.01:5;
+Y=-10:50;
+[y,z]=meshgrid(Y, Z);
+x=1;
+f = 40*( exp(-x/10)+exp(-y/10)+exp(z/10-2) +exp(-2-z/10) );
+v=[60,80,100];
+
+
+contour(y,z,f,v, 'ShowText','on')
+% contour(y,z,f,10, 'ShowText','on')
+xlabel('Y','FontSize', 16)
+ylabel('Z','FontSize', 16)
+title('Height of Map Hill Drive, full function','FontSize', 20)
