@@ -13,7 +13,7 @@ q = quiver(x, y, dx, dy);
 
 v=[0,.001,.05,.10,.2,.3,.4,.5,1];
 
-contour(x,y,f,v, 'ShowText','on')
+contour(x,y,f,10, 'ShowText','on')
 xlabel('Y','FontSize', 16)
 ylabel('Z','FontSize', 16)
 title('Electric Potential','FontSize', 20)
