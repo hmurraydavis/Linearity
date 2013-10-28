@@ -1,0 +1,16 @@
+% studio10_Q1   Linearity I   
+X=-4:4;
+Y=-3:3;
+[x,y]=meshgrid(X, Y);
+
+f = 100./(1+x.^2+2.*y.^2);
+[dx,dy] = gradient(f, .2, .2);
+dx=-1.*dx;
+dy=-1.*dy;
+
+hold on;
+q = quiver(x, y, dx, dy);
+contour(x,y,f,10, 'ShowText','on');
+xlabel('X','FontSize', 16);
+ylabel('Y','FontSize', 16);
+title('Velocity Field','FontSize', 20);
