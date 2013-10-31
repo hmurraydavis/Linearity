@@ -1,30 +1,21 @@
-% studio11_Q1   Linearity I   
+v = 0:0.1:1;
+[x,y] = meshgrid(v);
+t=1;
+u1=(-x./(x.^2+y.^2)) ;
+u2=(y./(x.^2+y.^2)) ;
 
-X=-5:5;
-Y=-5:5;
-[x,y]=meshgrid(X, Y);
+figure(2)
 
-P=-5:5;
-Q=-5:5;
-[p,q]=meshgrid(P, Q);
+quiver(x,y,u1,u2);hold on;
+%%%%%%%%%%%%%%%%%%%
+% cav = curl(x,y,u1,u2);
+cav=divergence(u1,u2);
+%%%%%%%%%%%%%
 
-u=-y./sqrt(x.^2+y.^2);
-v=x./sqrt(x.^2+y.^2);
-
-[dx,dy] = gradient(u, .2, .2);
-[dp,dq] = gradient(v, .2, .2);
-
-
-% contour(y,z,f,10, 'ShowText','on', 'LineWidth',3);
-hold on;
-% s = quiver(x, y, dx, dy);
-% r = quiver(p, q, dp, dq);
-a=quiver(x,q,dx,dq);
-divergence(x,y);
-
-% v=[0,.001,.05,.10,.2,.3,.4,.5,1];
-
-contour(x,q,u,10, 'ShowText','on');
-xlabel('Y','FontSize', 16);
-ylabel('Z','FontSize', 16);
-title('Electric Potential','FontSize', 20);
+contour(x,y,cav,'linewidth',2)
+hold off
+%%%%%%%%%%%%%%%%%%%
+% title('Curl Plot','FontSize', 20);
+title('Divergence Plot','FontSize', 20);
+%%%%%%%%%%%%%%
+xlabel('x','FontSize', 16); ylabel('y','FontSize', 16)
